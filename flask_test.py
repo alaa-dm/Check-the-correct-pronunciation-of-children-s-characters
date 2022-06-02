@@ -40,10 +40,10 @@ def upload_file():
          y = clf.predict(x_test)
          print(y)
          result= y
-
+         return str(result[0])
 
         return render_template("upload.html", character_name= result)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0")
