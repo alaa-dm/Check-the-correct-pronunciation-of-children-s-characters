@@ -43,3 +43,22 @@ def upload_file():
          return str(result[0])
 
         return render_template("upload.html", character_name= result)
+
+@app.route('/', methods=['POST'])
+def upload_file2():
+    if request.method == 'POST':
+        f = request.files['file']
+        if f and allowed_file(f.filename):
+         f.save(secure_filename(f.filename))
+         data, sampling_rate = librosa.load(f.filename)
+         (rate, sig) = wav.read(f.filename)
+         var_mfcc = mfcc(sig, rate)
+         var_mean_mfcc = var_mfcc.mean(axis=0)
+         all_wave.append(var_mean_mfcc)
+         all_waves = np.array(all_wave)
+         x_test = all_waves
+         y = clf.predict(x_test)
+         print(y)
+         result= y
+
+        return render_template("upload.html", character_name= result)
