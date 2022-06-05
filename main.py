@@ -62,5 +62,5 @@ def upload_file2():
          print(y)
          result= y
 
-         # return render_template("upload.html", character_name= result)
+         return render_template("upload.html", character_name= result)
 
