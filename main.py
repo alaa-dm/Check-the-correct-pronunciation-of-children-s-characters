@@ -43,7 +43,7 @@ def upload_file():
          result= y
          return str(result[0])
 #
-         # return render_template("upload.html", character_name= result)
+         return render_template("upload.html", character_name= result)
 
 @app.route('/', methods=['POST'])
 def upload_file2():
