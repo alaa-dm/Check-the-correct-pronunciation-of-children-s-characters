@@ -12,7 +12,7 @@ import urllib.request
 app=Flask(__name__,template_folder="templates")
 # from app import app
 ALLOWED_EXTENSIONS = set(['wav'])
-# all_wave=[]
+# all_wave=[]0Û
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -35,7 +35,6 @@ def upload_file():
          data, sampling_rate = librosa.load(f.filename)
          (rate, sig) = wav.read(f.filename)
          os.remove(f.filename)
-
          var_mfcc = mfcc(sig, rate)
          var_mean_mfcc = var_mfcc.mean(axis=0)
          all_wave.append(var_mean_mfcc)
@@ -73,5 +72,5 @@ def upload_file2():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
     app.run(debug=True, host="0.0.0.0")
