@@ -12,7 +12,7 @@ import urllib.request
 app=Flask(__name__,template_folder="templates")
 # from app import app
 ALLOWED_EXTENSIONS = set(['wav'])
-# all_wave=[]0Û
+# all_wave=[]
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
