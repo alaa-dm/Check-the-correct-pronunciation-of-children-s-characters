@@ -37,7 +37,7 @@ for lable in lables :
     for w in ws:
      data, sampling_rate = librosa.load(path + '/' + lable + '/' + w)
      (rate, sig) = wav.read(path + '/' + lable + '/' + w)
-     var_mfcc =mfcc(sig, rate)
+     var_mfcc =mfcc(sig, 16000)
      var_mean_mfcc=var_mfcc.mean(axis=0)
      all_wave.append(var_mean_mfcc)
      all_lable.append(lable)
