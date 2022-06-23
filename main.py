@@ -40,7 +40,7 @@ def upload_file():
          all_waves = np.array(all_wave)
          x_test = all_waves
          y = clf.predict(x_test)
-         print(y)
+         # print(y)
          result= y
          return str(result[0])
 
